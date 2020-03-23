@@ -1,0 +1,21 @@
+#medical-news {
+    width: 100%;
+    height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #F4CF1B;
+}
+
+#medical-news div {
+    width: 40%;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    padding: 100px;
+}
+
+#medical-news div h2 {
+    color: #1078AD;
+    font-size: 22px;
+    font-weight: 600;
+}

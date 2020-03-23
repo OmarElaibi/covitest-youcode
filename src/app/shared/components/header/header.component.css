@@ -1,0 +1,25 @@
+#navbar {
+    background-color: #1078AD;
+    background-image: url('../../../../assets/imgs/background.png');
+    padding: 0px 5vw;
+}
+
+#navbar-logo {
+    height: 60px;
+    width: auto;
+    vertical-align: middle;
+}
+
+ul li {
+    list-style: none;
+}
+ul li a {
+    text-decoration: none;
+    color: #222222;
+    font-family: 'Cairo', sans-serif;
+    font-size: 18px;
+}
+
+.active {
+    color: #fff !important;
+}
