@@ -108,9 +108,10 @@ footer {
 #footer-note p {
     color: #7F7F7F;
     font-weight: 300;
-    font-size: 25px;
+    font-size: 1.5em;
     text-align: justify;
     text-align-last: center;
+    line-height: normal;
 }
 
 @media (max-width: 575.98px) {
@@ -119,7 +120,7 @@ footer {
     }
 
     #footer-note p {
-        font-size: 20px;
+        font-size: 1em;
         text-align: center;
     }
 }

@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" routerLink="/" >
     <img id="navbar-logo" src="../../../../assets/imgs/logo__sante.png" alt="logo de la ministère de la santé">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
@@ -15,14 +15,11 @@
             <i class="fa fa-globe" id="globe-icon"></i>
           </button>
       </li>
-      <li class="nav-item active">
-        <a class="nav-link" href="#">الرئيسية</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/">الرئيسية</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">مراكز الإتصال</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">نصائح</a>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/conseils">نصائح</a>
       </li>
     </ul>
   </div>
