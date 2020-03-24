@@ -5,7 +5,7 @@ import { HomeComponent } from 'src/app/modules/home/home.component';
 import { RouterModule } from '@angular/router';
 import { QuizComponent } from 'src/app/modules/quiz/quiz.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 @NgModule({
@@ -17,7 +17,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
   imports: [
     CommonModule,
     RouterModule,
-    SharedModule
+    SharedModule,
+    MatStepperModule
   ]
 })
 export class DefaultModule { }
