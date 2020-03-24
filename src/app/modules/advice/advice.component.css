@@ -39,9 +39,7 @@
 }
 
 @media (max-width: 575.98px) {
-  #info {
-    order: 2;
-  }
+
 
   #info h2 {
     font: Bold 25px/30px Cairo;
