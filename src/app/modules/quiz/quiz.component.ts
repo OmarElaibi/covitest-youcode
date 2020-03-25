@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatStepper } from '@angular/material/stepper';
+import { TestService } from 'src/app/shared/services/test.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz',
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QuizComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('nextButton') btn;
+
+  resultat: string;
+  message: string;
+
+  constructor(private service: TestService, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goNext(stepper: MatStepper) {
+    stepper.next();
+  }
+
+  nextClicked() {
+    this.resultat = this.service.resultat;
+    this.message = this.service.message;
+    this.btn.nativeElement.click();
+  }
+
+  restart() {
+    location.reload(true);
   }
 
 }

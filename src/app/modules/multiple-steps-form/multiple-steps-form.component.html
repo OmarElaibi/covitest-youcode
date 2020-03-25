@@ -13,12 +13,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio1" value="true" name="fever" formControlName="fever">
+                    <input type="radio" id="radio1" [value]="true" name="fever" formControlName="fever">
                     <label for="radio1">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio2" value="false" name="fever" formControlName="fever">
+                    <input type="radio" id="radio2" [value]="false" name="fever" formControlName="fever">
                     <label for="radio2">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -50,7 +50,7 @@
                 <div class="row justify-content-around">
                   <div class="col-lg-12 col-sm-12 d-flex justify-content-between answer-radio">
                     <div class="input-group">
-                      <input id="fever-input" type="text" class="form-control myInput" placeholder="37.5"
+                      <input id="fever-input" type="number" class="form-control myInput" placeholder="37.5" min="10"
                         formControlName="feverDegree">
                       <div class="input-group-append">
                         <span class="input-group-text myAddon" id="fever-addon">درجة</span>
@@ -82,12 +82,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio3" value="true" name="cough" formControlName="cough">
+                    <input type="radio" id="radio3" [value]="true" name="cough" formControlName="cough">
                     <label for="radio3">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio4" value="false" name="cough" formControlName="cough">
+                    <input type="radio" id="radio4" [value]="false" name="cough" formControlName="cough">
                     <label for="radio4">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -119,12 +119,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio5" value="true" name="muscularPain" formControlName="muscularPain">
+                    <input type="radio" id="radio5" [value]="true" name="muscularPain" formControlName="muscularPain">
                     <label for="radio5">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio6" value="false" name="muscularPain" formControlName="muscularPain">
+                    <input type="radio" id="radio6" [value]="false" name="muscularPain" formControlName="muscularPain">
                     <label for="radio6">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -156,12 +156,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio7" value="true" name="soreThroat" formControlName="soreThroat">
+                    <input type="radio" id="radio7" [value]="true" name="soreThroat" formControlName="soreThroat">
                     <label for="radio7">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio8" value="false" name="soreThroat" formControlName="soreThroat">
+                    <input type="radio" id="radio8" [value]="false" name="soreThroat" formControlName="soreThroat">
                     <label for="radio8">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -192,12 +192,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio9" value="true" name="diarrhea" formControlName="diarrhea">
+                    <input type="radio" id="radio9" [value]="true" name="diarrhea" formControlName="diarrhea">
                     <label for="radio9">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio10" value="false" name="diarrhea" formControlName="diarrhea">
+                    <input type="radio" id="radio10" [value]="false" name="diarrhea" formControlName="diarrhea">
                     <label for="radio10">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -229,12 +229,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio11" value="true" name="tiredness" formControlName="tiredness">
+                    <input type="radio" id="radio11" [value]="true" name="tiredness" formControlName="tiredness">
                     <label for="radio11">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio12" value="false" name="tiredness" formControlName="tiredness">
+                    <input type="radio" id="radio12" [value]="false" name="tiredness" formControlName="tiredness">
                     <label for="radio12">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -265,12 +265,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio13" value="true" name="dyspnea" formControlName="dyspnea">
+                    <input type="radio" id="radio13" [value]="true" name="dyspnea" formControlName="dyspnea">
                     <label for="radio13">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio14" value="false" name="dyspnea" formControlName="dyspnea">
+                    <input type="radio" id="radio14" [value]="false" name="dyspnea" formControlName="dyspnea">
                     <label for="radio14">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -301,12 +301,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio15" value="true" name="anorexia" formControlName="anorexia">
+                    <input type="radio" id="radio15" [value]="true" name="anorexia" formControlName="anorexia">
                     <label for="radio15">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio16" value="false" name="anorexia" formControlName="anorexia">
+                    <input type="radio" id="radio16" [value]="false" name="anorexia" formControlName="anorexia">
                     <label for="radio16">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -386,8 +386,8 @@
                 <div class="row justify-content-around">
                   <div class="col-lg-12 col-sm-12 d-flex justify-content-between answer-radio">
                     <div class="input-group">
-                      <input id="age-input" type="text" class="form-control myInput" placeholder="> 15"
-                        formControlName="age">
+                      <input id="age-input" type="number" class="form-control myInput" placeholder="15+"
+                        formControlName="age" min="15">
                       <div class="input-group-append">
                         <span class="input-group-text myAddon" id="age-addon">سنة</span>
                       </div>
@@ -420,7 +420,7 @@
                 <div class="row justify-content-around">
                   <div class="col-lg-12 col-sm-12 d-flex justify-content-between answer-radio">
                     <div class="input-group">
-                      <input id="weight-input" type="text" class="form-control myInput" placeholder="60"
+                      <input id="weight-input" type="number" class="form-control myInput" placeholder="60" min="35"
                         formControlName="weight">
                       <div class="input-group-append">
                         <span class="input-group-text myAddon" id="weight-addon">كلغ</span>
@@ -454,7 +454,7 @@
                 <div class="row justify-content-around">
                   <div class="col-lg-12 col-sm-12 d-flex justify-content-between answer-radio">
                     <div class="input-group">
-                      <input id="height-input" type="text" class="form-control myInput" placeholder="1.7"
+                      <input id="height-input" type="number" class="form-control myInput" placeholder="1.7" min="1" max="2.5"
                         formControlName="height">
                       <div class="input-group-append">
                         <span class="input-group-text myAddon" id="height-addon">متر</span>
@@ -487,12 +487,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio21" value="true" name="heartDisease" formControlName="heartDisease">
+                    <input type="radio" id="radio21" [value]="true" name="heartDisease" formControlName="heartDisease">
                     <label for="radio21">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio22" value="false" name="heartDisease" formControlName="heartDisease">
+                    <input type="radio" id="radio22" [value]="false" name="heartDisease" formControlName="heartDisease">
                     <label for="radio22">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -524,12 +524,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio23" value="true" name="diabetes" formControlName="diabetes">
+                    <input type="radio" id="radio23" [value]="true" name="diabetes" formControlName="diabetes">
                     <label for="radio23">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio24" value="false" name="diabetes" formControlName="diabetes">
+                    <input type="radio" id="radio24" [value]="false" name="diabetes" formControlName="diabetes">
                     <label for="radio24">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -560,12 +560,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio25" value="true" name="cancer" formControlName="cancer">
+                    <input type="radio" id="radio25" [value]="true" name="cancer" formControlName="cancer">
                     <label for="radio25">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio26" value="false" name="cancer" formControlName="cancer">
+                    <input type="radio" id="radio26" [value]="false" name="cancer" formControlName="cancer">
                     <label for="radio26">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -596,13 +596,13 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio27" value="true" name="breathingIllness"
+                    <input type="radio" id="radio27" [value]="true" name="breathingIllness"
                       formControlName="breathingIllness">
                     <label for="radio27">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio28" value="false" name="breathingIllness"
+                    <input type="radio" id="radio28" [value]="false" name="breathingIllness"
                       formControlName="breathingIllness">
                     <label for="radio28">
                       <i class="fas fa-times"></i>
@@ -635,13 +635,13 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio29" value="true" name="chronicRenalFailure"
+                    <input type="radio" id="radio29" [value]="true" name="chronicRenalFailure"
                       formControlName="chronicRenalFailure">
                     <label for="radio29">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio30" value="false" name="chronicRenalFailure"
+                    <input type="radio" id="radio30" [value]="false" name="chronicRenalFailure"
                       formControlName="chronicRenalFailure">
                     <label for="radio30">
                       <i class="fas fa-times"></i>
@@ -674,13 +674,13 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio31" value="true" name="chronicLiverDisease"
+                    <input type="radio" id="radio31" [value]="true" name="chronicLiverDisease"
                       formControlName="chronicLiverDisease">
                     <label for="radio31">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio32" value="false" name="chronicLiverDisease"
+                    <input type="radio" id="radio32" [value]="false" name="chronicLiverDisease"
                       formControlName="chronicLiverDisease">
                     <label for="radio32">
                       <i class="fas fa-times"></i>
@@ -713,12 +713,12 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-8 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio33" value="true" name="pregnancy" formControlName="pregnancy">
+                    <input type="radio" id="radio33" [value]="true" name="pregnancy" formControlName="pregnancy">
                     <label for="radio33">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio34" value="false" name="pregnancy" formControlName="pregnancy">
+                    <input type="radio" id="radio34" [value]="false" name="pregnancy" formControlName="pregnancy">
                     <label for="radio34">
                       <i class="fas fa-times"></i>
                       <span>لا</span>
@@ -754,13 +754,13 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio35" value="true" name="immuneSystemDisease"
+                    <input type="radio" id="radio35" [value]="true" name="immuneSystemDisease"
                       formControlName="immuneSystemDisease">
                     <label for="radio35">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio36" value="false" name="immuneSystemDisease"
+                    <input type="radio" id="radio36" [value]="false" name="immuneSystemDisease"
                       formControlName="immuneSystemDisease">
                     <label for="radio36">
                       <i class="fas fa-times"></i>
@@ -794,13 +794,13 @@
               <div class="col-lg-8 col-sm-12 container">
                 <div class="row justify-content-around">
                   <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
-                    <input type="radio" id="radio37" value="true" name="immunosuppressiveTherapy"
+                    <input type="radio" id="radio37" [value]="true" name="immunosuppressiveTherapy"
                       formControlName="immunosuppressiveTherapy">
                     <label for="radio37">
                       <i class="fas fa-check"></i>
                       <span>نعم</span>
                     </label>
-                    <input type="radio" id="radio38" value="false" name="immunosuppressiveTherapy"
+                    <input type="radio" id="radio38" [value]="false" name="immunosuppressiveTherapy"
                       formControlName="immunosuppressiveTherapy">
                     <label for="radio38">
                       <i class="fas fa-times"></i>
@@ -816,8 +816,8 @@
                   لقبل</button>
               </div>
               <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
-                <button class="btn btn-form" (click)="goForward(stepper)"
-                  [disabled]="!immunosuppressiveTherapyFormGroup.valid">ننهي الإختبار</button>
+                <button class="btn btn-form"
+                  [disabled]="!immunosuppressiveTherapyFormGroup.valid" (click)="saveAnswers()">ننهي الإختبار</button>
               </div>
             </div>
           </div>

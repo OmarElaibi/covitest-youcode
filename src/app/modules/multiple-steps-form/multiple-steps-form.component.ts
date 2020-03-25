@@ -1,6 +1,9 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Symptoms } from 'src/app/shared/interfaces/symptoms';
+import { PoorPrognosticFactor } from 'src/app/shared/interfaces/poor-prognostic-factor';
+import { TestService } from 'src/app/shared/services/test.service';
 
 @Component({
   selector: 'app-multiple-steps-form',
@@ -11,6 +14,10 @@ export class MultipleStepsFormComponent implements OnInit {
 
   totalStepsCount: number;
   progressBarValue;
+  symptoms: Symptoms;
+  ppf: PoorPrognosticFactor;
+
+  @Output() nextEvent = new EventEmitter<any>();
 
   // formGroups
   feverFormGroup: FormGroup;
@@ -36,9 +43,12 @@ export class MultipleStepsFormComponent implements OnInit {
   immuneSystemDiseaseFormGroup: FormGroup;
   immunosuppressiveTherapyFormGroup: FormGroup;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private service: TestService) { }
 
   ngOnInit(): void {
+    this.symptoms = new Symptoms();
+    this.ppf = new PoorPrognosticFactor();
+    console.log(this.symptoms);
     this.progressBarValue = (1 / 23) * 100;
     this.totalStepsCount = 22;
     this.initializeFormGroups();
@@ -49,7 +59,7 @@ export class MultipleStepsFormComponent implements OnInit {
       fever: ['', Validators.required]
     });
     this.feverDegreeFormGroup = this.fb.group({
-      feverDegree: ['', Validators.required]
+      feverDegree: ['', [Validators.required, Validators.min(10)]]
     });
     this.coughFormGroup = this.fb.group({
       cough: ['', Validators.required]
@@ -76,13 +86,13 @@ export class MultipleStepsFormComponent implements OnInit {
       discomfort: ['', Validators.required]
     });
     this.ageFormGroup = this.fb.group({
-      age: ['', Validators.required]
+      age: ['', [Validators.required, Validators.min(15)]]
     });
     this.weightFormGroup = this.fb.group({
-      weight: ['', Validators.required]
+      weight: ['', [Validators.required, Validators.min(35)]]
     });
     this.heightFormGroup = this.fb.group({
-      height: ['', Validators.required]
+      height: ['', [Validators.required, Validators.min(1), Validators.max(2.5)]]
     });
     this.heartDiseaseFormGroup = this.fb.group({
       heartDisease: ['', Validators.required]
@@ -121,6 +131,52 @@ export class MultipleStepsFormComponent implements OnInit {
   goForward(stepper: MatStepper) {
     stepper.next();
     this.progressBarValue += (1 / this.totalStepsCount) * 100;
+  }
+
+  saveAnswers() {
+    this.saveSymptoms();
+    this.savePpf();
+    setTimeout(() => {
+      this.service.getResult(this.symptoms, this.ppf);
+    }, 1000);
+    setTimeout(() => {
+      this.nextEvent.emit();
+    }, 1000);
+  }
+
+  saveSymptoms() {
+    this.symptoms.fever = this.feverFormGroup.value.fever;
+    this.symptoms.feverDeg = +this.feverDegreeFormGroup.value.feverDegree;
+    this.symptoms.anorexia = this.anorexiaFormGroup.value.anorexia;
+    this.symptoms.cough = this.coughFormGroup.value.cough;
+    this.symptoms.diarrhea = this.diarrheaFormGroup.value.diarrhea;
+    if (this.discomfortFormGroup.value.discomfort === 'B' || this.discomfortFormGroup.value.discomfort === 'AB') {
+      this.symptoms.discomfort = false;
+    } else {
+      this.symptoms.discomfort = true;
+    }
+    this.symptoms.dyspnea = this.dyspneaFormGroup.value.dyspnea;
+    this.symptoms.muscularPain = this.muscularPainFormGroup.value.muscularPain;
+    this.symptoms.soreThroat = this.soreThroatFormGroup.value.soreThroat;
+    this.symptoms.tiredness = this.tirednessFormGroup.value.tiredness;
+  }
+
+  savePpf() {
+    this.ppf.age = +this.ageFormGroup.value.age;
+    this.ppf.imc = this.weightFormGroup.value.weight / Math.pow(this.heightFormGroup.value.height, 2);
+    this.ppf.breathingIllness = this.breathingIllnessFormGroup.value.breathingIllness;
+    this.ppf.cancer = this.cancerFormGroup.value.cancer;
+    this.ppf.chronicLiverDisease = this.chronicLiverDiseaseFormGroup.value.chronicLiverDisease;
+    this.ppf.chronicRenalFailure = this.chronicRenalFailureFormGroup.value.chronicRenalFailure;
+    this.ppf.diabetes = this.diabetesFormGroup.value.diabetes;
+    this.ppf.heartDisease = this.heartDiseaseFormGroup.value.heartDisease;
+    this.ppf.immuneSystemDisease = this.immuneSystemDiseaseFormGroup.value.immuneSystemDisease;
+    this.ppf.immunosuppressiveTherapy = this.immunosuppressiveTherapyFormGroup.value.immunosuppressiveTherapy;
+    if (this.pregnancyFormGroup.value.pregnancy === true) {
+      this.ppf.pregnancy = true;
+    } else {
+      this.ppf.pregnancy = false;
+    }
   }
 
 }

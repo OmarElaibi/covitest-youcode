@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-12" dir="rtl">
-        <mat-horizontal-stepper labelPosition="bottom">
+        <mat-horizontal-stepper labelPosition="bottom" #bigStepper>
           <mat-step>
             <ng-template matStepLabel>
               <h5 class="step-label">معلومات</h5>
@@ -35,7 +35,7 @@
             </ng-template>
             <!-- second step content -->
             
-                <app-multiple-steps-form></app-multiple-steps-form>
+                <app-multiple-steps-form (nextEvent)="nextClicked()"></app-multiple-steps-form>
               
             <!-- end second step -->
           </mat-step>
@@ -44,7 +44,16 @@
               <h5 class="step-label">النتائج</h5>
             </ng-template>
             <!-- third step content -->
-            Content 3
+            <div class="jumbotron" dir="rtl">
+              <h5 id="infos-title">النتيجة</h5>
+              <p class="result-paragraph" id="result" style="white-space: pre-line;">{{resultat}}</p>
+              <hr class="my-4">
+              <p class="result-paragraph" id="conseil">{{message}}</p>
+
+            </div>
+            <div class="d-flex justify-content-center">
+              <button id="step-next-btn" class="btn btn-lg"  dir="rtl" (click)="restart()">نعاود الاختبار</button>
+            </div>
             <!-- end third step -->
           </mat-step>
         </mat-horizontal-stepper>
@@ -52,3 +61,5 @@
     </div>
   </div>
 </section>
+
+<button #nextButton class="d-none" (click)="goNext(bigStepper)"></button>

@@ -1,13 +1,13 @@
-export interface PoorPrognosticFactor {
+export class PoorPrognosticFactor {
     age: number;
     imc: number; // poids(kg)/taille^2
-    heart_disease: boolean;
+    heartDisease: boolean;
     diabetes: boolean;
     cancer: boolean;
-    breathing_illness: boolean;
-    chronic_renal_failure: boolean;
-    chronic_liver_disease: boolean;
+    breathingIllness: boolean;
+    chronicRenalFailure: boolean;
+    chronicLiverDisease: boolean;
     pregnancy: boolean;
-    immune_system_disease: boolean;
-    immunosuppressive_therapy: boolean;
+    immuneSystemDisease: boolean;
+    immunosuppressiveTherapy: boolean;
 }

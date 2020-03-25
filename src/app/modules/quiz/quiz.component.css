@@ -29,6 +29,23 @@
     text-align-last: center;
 }
 
+.result-paragraph {
+    
+    text-align: justify;
+    text-align-last: center;
+    line-height: 35px;
+}
+
+#result {
+    color: #026534;
+    font-size: 25px;
+}
+
+#conseil {
+    color: #1078AD;
+    font-size: 20px;
+}
+
 #step-next-btn {
     color: #1078AD;
     border: 2px solid #1078AD;

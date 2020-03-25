@@ -1,9 +1,9 @@
-export interface Symptoms {
+export class Symptoms {
     fever: boolean;
-    fever_deg?: number;
+    feverDeg?: number;
     cough: boolean;
-    muscular_pain: boolean;
-    sore_throat: boolean;
+    muscularPain: boolean;
+    soreThroat: boolean;
     diarrhea: boolean;
     tiredness: boolean;
     dyspnea: boolean; // difficulty of breathing
