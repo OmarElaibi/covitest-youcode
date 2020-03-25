@@ -14,7 +14,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background: url("/assets/imgs/health.jpg") center no-repeat;
+    background: url("~/assets/imgs/health.jpg") center no-repeat;
     background-size: cover;
     position: relative;
     padding: 0 20px;

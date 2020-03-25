@@ -1,6 +1,6 @@
 #navbar {
     background-color: #1078AD;
-    background-image: url("/assets/imgs/navbar-bg.png");
+    background-image: url("~/assets/imgs/navbar-bg.png");
     padding: 0px 5vw;
 }
 

@@ -1,0 +1,834 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center" id="formProgressBar">
+    <span>{{stepper.selectedIndex + 1}}/{{totalStepsCount}}</span>
+    <mat-progress-bar id="formProgressBar" mode="determinate" [value]="progressBarValue"></mat-progress-bar>
+  </div>
+  <div class="card-body">
+    <mat-horizontal-stepper linear id="formStepper" #stepper>
+      <mat-step [stepControl]="feverFormGroup" editable>
+        <form [formGroup]="feverFormGroup">
+          <h4 class="question mt-5">واش كانت فيك السخانة في 10 ايام لي فاتت ( تبوريشة ، عرقتي ) ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio1" value="true" name="fever" formControlName="fever">
+                    <label for="radio1">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio2" value="false" name="fever" formControlName="fever">
+                    <label for="radio2">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!feverFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="feverDegreeFormGroup" editable>
+        <form [formGroup]="feverDegreeFormGroup">
+          <h4 class="question mt-5">شحال درجة الحرارة ديالك ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-12 col-sm-12 d-flex justify-content-between answer-radio">
+                    <div class="input-group">
+                      <input id="fever-input" type="text" class="form-control myInput" placeholder="37.5"
+                        formControlName="feverDegree">
+                      <div class="input-group-append">
+                        <span class="input-group-text myAddon" id="fever-addon">درجة</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!feverDegreeFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="coughFormGroup" editable>
+        <form [formGroup]="coughFormGroup">
+          <h4 class="question mt-5">في الايام لي فاتو واش كانت فيك الكحبة اولا تزادت الكحبة لي كانت تتجيك عادية ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio3" value="true" name="cough" formControlName="cough">
+                    <label for="radio3">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio4" value="false" name="cough" formControlName="cough">
+                    <label for="radio4">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!coughFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="muscularPainFormGroup" editable>
+        <form [formGroup]="muscularPainFormGroup">
+          <h4 class="question mt-5">واش كتعاني من آلام عضلية غير معتادة في الأيام القليلة لي فاتت ؟
+          </h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio5" value="true" name="muscularPain" formControlName="muscularPain">
+                    <label for="radio5">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio6" value="false" name="muscularPain" formControlName="muscularPain">
+                    <label for="radio6">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1"
+                  [disabled]="!muscularPainFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="soreThroatFormGroup" editable>
+        <form [formGroup]="soreThroatFormGroup">
+          <h4 class="question mt-5">واش تيدرك حلقك هاد الايام ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio7" value="true" name="soreThroat" formControlName="soreThroat">
+                    <label for="radio7">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio8" value="false" name="soreThroat" formControlName="soreThroat">
+                    <label for="radio8">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!soreThroatFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="diarrheaFormGroup" editable>
+        <form [formGroup]="diarrheaFormGroup">
+          <h4 class="question mt-5">فهاد 24 ساعة لي فاتو واش كان فيك الإسهال ؟ على الاقل 3 مرات</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio9" value="true" name="diarrhea" formControlName="diarrhea">
+                    <label for="radio9">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio10" value="false" name="diarrhea" formControlName="diarrhea">
+                    <label for="radio10">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!diarrheaFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="tirednessFormGroup" editable>
+        <form [formGroup]="tirednessFormGroup">
+          <h4 class="question mt-5">فهاد الايام لي فاتو، واش عيتي بطريقة ماشي عادية لدرجة بقيتي مريح اكثر من نص يوم ؟
+          </h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio11" value="true" name="tiredness" formControlName="tiredness">
+                    <label for="radio11">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio12" value="false" name="tiredness" formControlName="tiredness">
+                    <label for="radio12">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!tirednessFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="dyspneaFormGroup" editable>
+        <form [formGroup]="dyspneaFormGroup">
+          <h4 class="question mt-5">واش لقيتي صعوبة كبيرة فالماكلة و الشراب لاكثر من 24 ساعة ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio13" value="true" name="dyspnea" formControlName="dyspnea">
+                    <label for="radio13">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio14" value="false" name="dyspnea" formControlName="dyspnea">
+                    <label for="radio14">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!dyspneaFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="anorexiaFormGroup" editable>
+        <form [formGroup]="anorexiaFormGroup">
+          <h4 class="question mt-5">واش كتحس بضيق فالتنفس ملي تتكلم ولا تدير جهد كثر من العادة ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio15" value="true" name="anorexia" formControlName="anorexia">
+                    <label for="radio15">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio16" value="false" name="anorexia" formControlName="anorexia">
+                    <label for="radio16">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!anorexiaFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="discomfortFormGroup" editable>
+        <form [formGroup]="discomfortFormGroup">
+          <h4 class="question mt-5">فهاد الوقت كيف تتحس بالجسم ديالك ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio17" value="B" name="discomfort" formControlName="discomfort">
+                    <label for="radio17">
+                      <i class="far fa-laugh"></i>
+                      <span>مزيان</span>
+                    </label>
+                    <input type="radio" id="radio18" value="AB" name="discomfort" formControlName="discomfort">
+                    <label for="radio18">
+                      <i class="far fa-smile-beam"></i>
+                      <span>شويا</span>
+                    </label>
+                  </div>
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio19" value="M" name="discomfort" formControlName="discomfort">
+                    <label for="radio19">
+                      <i class="far fa-frown"></i>
+                      <span>عيان</span>
+                    </label>
+                    <input type="radio" id="radio20" value="TM" name="discomfort" formControlName="discomfort">
+                    <label for="radio20">
+                      <i class="far fa-dizzy"></i>
+                      <span>مهلوك</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!discomfortFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="ageFormGroup" editable>
+        <form [formGroup]="ageFormGroup">
+          <h4 class="question mt-5">شحال عندك فعمرك ؟ هادشي باش نقدو نعرفو الخطورة ديال المرض إلا كان.</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-12 col-sm-12 d-flex justify-content-between answer-radio">
+                    <div class="input-group">
+                      <input id="age-input" type="text" class="form-control myInput" placeholder="> 15"
+                        formControlName="age">
+                      <div class="input-group-append">
+                        <span class="input-group-text myAddon" id="age-addon">سنة</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!ageFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="weightFormGroup" editable>
+        <form [formGroup]="weightFormGroup">
+          <h4 class="question mt-5">شحال عندك فالوزن ؟ باش نعرفو مؤشر الوزن ديال الجسم ديالك حيث يقدر يتزاد عليك الحال
+            فحالة كان فيك الڤيروس</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-12 col-sm-12 d-flex justify-content-between answer-radio">
+                    <div class="input-group">
+                      <input id="weight-input" type="text" class="form-control myInput" placeholder="60"
+                        formControlName="weight">
+                      <div class="input-group-append">
+                        <span class="input-group-text myAddon" id="weight-addon">كلغ</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!weightFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="heightFormGroup" editable>
+        <form [formGroup]="heightFormGroup">
+          <h4 class="question mt-5">شحال فيك فالطول ؟ باش نعرفو مؤشر الوزن ديال الجسم ديالك حيث يقدر يتزاد عليك الحال
+            فحالة كان فيك الڤيروس</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-12 col-sm-12 d-flex justify-content-between answer-radio">
+                    <div class="input-group">
+                      <input id="height-input" type="text" class="form-control myInput" placeholder="1.7"
+                        formControlName="height">
+                      <div class="input-group-append">
+                        <span class="input-group-text myAddon" id="height-addon">متر</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!heightFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="heartDiseaseFormGroup" editable>
+        <form [formGroup]="heartDiseaseFormGroup">
+          <h4 class="question mt-5">واش عندك ارتفاع ضغط الدم ؟ ولا فيك مرض القلب او الأوعية ادموية ؟ او تتاخد دوا ديال
+            القلب ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio21" value="true" name="heartDisease" formControlName="heartDisease">
+                    <label for="radio21">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio22" value="false" name="heartDisease" formControlName="heartDisease">
+                    <label for="radio22">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1"
+                  [disabled]="!heartDiseaseFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="diabetesFormGroup" editable>
+        <form [formGroup]="diabetesFormGroup">
+          <h4 class="question mt-5">فيك مرض السكر ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio23" value="true" name="diabetes" formControlName="diabetes">
+                    <label for="radio23">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio24" value="false" name="diabetes" formControlName="diabetes">
+                    <label for="radio24">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!diabetesFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="cancerFormGroup" editable>
+        <form [formGroup]="cancerFormGroup">
+          <h4 class="question mt-5">واش فيك السرطان ولا كان فيك السرطان ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio25" value="true" name="cancer" formControlName="cancer">
+                    <label for="radio25">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio26" value="false" name="cancer" formControlName="cancer">
+                    <label for="radio26">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!cancerFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="breathingIllnessFormGroup" editable>
+        <form [formGroup]="breathingIllnessFormGroup">
+          <h4 class="question mt-5">واش عندك الضيقة ؟ او متبع مع شي طبيب ديال الرية</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio27" value="true" name="breathingIllness"
+                      formControlName="breathingIllness">
+                    <label for="radio27">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio28" value="false" name="breathingIllness"
+                      formControlName="breathingIllness">
+                    <label for="radio28">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1"
+                  [disabled]="!breathingIllnessFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="chronicRenalFailureFormGroup" editable>
+        <form [formGroup]="chronicRenalFailureFormGroup">
+          <h4 class="question mt-5">واش تادير دياليز؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio29" value="true" name="chronicRenalFailure"
+                      formControlName="chronicRenalFailure">
+                    <label for="radio29">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio30" value="false" name="chronicRenalFailure"
+                      formControlName="chronicRenalFailure">
+                    <label for="radio30">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1"
+                  [disabled]="!chronicRenalFailureFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="chronicLiverDiseaseFormGroup" editable>
+        <form [formGroup]="chronicLiverDiseaseFormGroup">
+          <h4 class="question mt-5">واش عندك إلتهاب فالكبد ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio31" value="true" name="chronicLiverDisease"
+                      formControlName="chronicLiverDisease">
+                    <label for="radio31">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio32" value="false" name="chronicLiverDisease"
+                      formControlName="chronicLiverDisease">
+                    <label for="radio32">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1"
+                  [disabled]="!chronicLiverDiseaseFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="pregnancyFormGroup" editable>
+        <form [formGroup]="pregnancyFormGroup">
+          <h4 class="question mt-5">واش حاملة ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-8 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio33" value="true" name="pregnancy" formControlName="pregnancy">
+                    <label for="radio33">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio34" value="false" name="pregnancy" formControlName="pregnancy">
+                    <label for="radio34">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                    <input type="radio" id="radio39" value="man" name="pregnancy" formControlName="pregnancy">
+                    <label for="radio39">
+                      <i class="fas fa-male"></i>
+                      <span>راجل</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1" [disabled]="!pregnancyFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="immuneSystemDiseaseFormGroup" editable>
+        <form [formGroup]="immuneSystemDiseaseFormGroup">
+          <h4 class="question mt-5">واش عندك شي مرض تينقص لك المناعة ديالك ؟</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio35" value="true" name="immuneSystemDisease"
+                      formControlName="immuneSystemDisease">
+                    <label for="radio35">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio36" value="false" name="immuneSystemDisease"
+                      formControlName="immuneSystemDisease">
+                    <label for="radio36">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [hidden]="stepper.selectedIndex === totalStepsCount-1"
+                  [disabled]="!immuneSystemDiseaseFormGroup.valid">السؤال
+                  التالي</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="immunosuppressiveTherapyFormGroup" editable>
+        <form [formGroup]="immunosuppressiveTherapyFormGroup">
+          <h4 class="question mt-5">واش تتاخد شي دواء تينقص لك المناعة ديالك ؟ بحال: الكورتيكوستيرويدات ، الميثوتريكسات
+            ، السيكلوسبورين ، تاكروليموس ، الآزوثيوبرين ، سيكلوفوسفاميد (كاين ادوية اخرى من غير هادو).</h4>
+          <div class="container mt-5">
+            <div class="row justify-content-center mt-5">
+              <div class="col-lg-8 col-sm-12 container">
+                <div class="row justify-content-around">
+                  <div class="col-lg-6 col-sm-12 d-flex justify-content-between answer-radio">
+                    <input type="radio" id="radio37" value="true" name="immunosuppressiveTherapy"
+                      formControlName="immunosuppressiveTherapy">
+                    <label for="radio37">
+                      <i class="fas fa-check"></i>
+                      <span>نعم</span>
+                    </label>
+                    <input type="radio" id="radio38" value="false" name="immunosuppressiveTherapy"
+                      formControlName="immunosuppressiveTherapy">
+                    <label for="radio38">
+                      <i class="fas fa-times"></i>
+                      <span>لا</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-between justify-content-sm-center mt-5">
+              <div class="col-4 d-flex justify-content-sm-start justify-content-end mt-5">
+                <button class="btn btn-form" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+                  لقبل</button>
+              </div>
+              <div class="col-4 d-flex justify-content-sm-end justify-content-start mt-5">
+                <button class="btn btn-form" (click)="goForward(stepper)"
+                  [disabled]="!immunosuppressiveTherapyFormGroup.valid">ننهي الإختبار</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </mat-step>
+    </mat-horizontal-stepper>
+  </div>
+  <!-- <div class="card-footer">
+    <button class="btn btn-primary float-right" (click)="goBack(stepper)" [hidden]="stepper.selectedIndex === 0">السؤال
+      لقبل</button>
+    <button class="btn btn-primary float-left" (click)="goForward(stepper)"
+      [hidden]="stepper.selectedIndex === totalStepsCount-1">السؤال التالي</button>
+  </div> -->
+</div>
