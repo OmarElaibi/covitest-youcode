@@ -22,7 +22,6 @@
   text-align-last: right;
 }
 #info button {
-
   font-size: 22px;
   background: url("/assets/imgs/button-bg.png");
   border: 2px solid #1078AD;
@@ -58,10 +57,6 @@
 }
 
 /**********************/
-
-* {
-  font-family: 'Cairo', sans-serif !important;
-}
 
 #medical-news {
   width: 100%;

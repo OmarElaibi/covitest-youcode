@@ -57,6 +57,66 @@
                   "maximumError": "10kb"
                 }
               ]
+            },
+            "production-fr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "outputPath": "dist/covitest-youcode/fr",
+              "i18nFile": "src/locale/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "fr",
+              "i18nMissingTranslation": "error",
+              "baseHref": "/fr/"
+            },
+            "fr": {
+              "aot": true,
+              "outputPath": "dist/covitest-youcode/fr",
+              "i18nFile": "src/locale/messages.fr.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "fr",
+              "i18nMissingTranslation": "error",
+            },
+            "production-ar": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "outputPath": "dist/covitest-youcode/ar",
+              "i18nFile": "src/locale/messages.ar.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ar",
+              "i18nMissingTranslation": "error",
+              "baseHref": "/ar/"
+            },
+            "ar": {
+              "aot": true,
+              "outputPath": "dist/covitest-youcode/ar",
+              "i18nFile": "src/locale/messages.ar.xlf",
+              "i18nFormat": "xlf",
+              "i18nLocale": "ar",
+              "i18nMissingTranslation": "error",
             }
           }
         },
@@ -68,6 +128,12 @@
           "configurations": {
             "production": {
               "browserTarget": "covitest:build:production"
+            },
+            "fr": {
+              "browserTarget": "covitest:build:production-fr"
+            },
+            "ar": {
+              "browserTarget": "covitest:build:production-ar"
             }
           }
         },
