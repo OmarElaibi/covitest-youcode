@@ -21,8 +21,8 @@
         </div>
         <div class="col-4">
           <ul class="list-group list-group-flush" id="footer-links">
-            <li i18n="@@lang43" class="list-group-item"><a routerLink="/" dir="rtl">الرئيسية</a></li>
-            <li i18n="@@lang44" class="list-group-item"><a routerLink="/conseils" dir="rtl">نصائح</a></li>
+            <li i18n="@@lang43" class="list-group-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><a routerLink="/" dir="rtl">الرئيسية</a></li>
+            <li i18n="@@lang44" class="list-group-item" routerLinkActive="active"><a routerLink="/conseils" dir="rtl">نصائح</a></li>
             <li i18n="@@lang45" class="list-group-item">
               <button class="btn btn-outline-light btn-sm btn-block" id="footer-lang-btn">
                 français

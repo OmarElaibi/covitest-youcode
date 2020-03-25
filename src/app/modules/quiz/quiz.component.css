@@ -3,7 +3,7 @@
 }
 
 #quiz-section {
-  height: 75vh;
+  /* min-height: 75vh; */
 }
 
 .step-label {
@@ -45,6 +45,25 @@
     background-color: #1078AD;
 }
 
+@media (max-width: 575.98px) {
+    ::ng-deep .step-label {
+        font-size: 14px !important;
+        font-weight: 700;
+    }
+
+    ::ng-deep .mat-stepper-horizontal-line {
+        border-top: 1px solid #026534 !important;
+    }
+
+    /* ::ng-deep .mat-step-header .mat-step-icon-selected {
+        background-color: #F4CF1B !important;
+        color: #F4CF1B !important;
+        box-shadow: 0 0 0 7px #88B7D3;
+        width: 7px !important;
+        height: 7px !important;
+    } */
+}
+
 /* *********** MATERIAL DESIGN CUSTOMIZATION *********** */
 
 ::ng-deep .mat-stepper-horizontal {
@@ -66,8 +85,8 @@
 
 ::ng-deep .mat-stepper-horizontal-line {
     border-top: 2px solid #026534 !important;
-    margin: 0 -16px;
-    min-width: 32px;
+    /* margin: 0 -16px;
+    min-width: 32px; */
 }
 
 ::ng-deep .mat-horizontal-stepper-header {
