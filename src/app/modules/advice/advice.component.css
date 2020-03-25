@@ -39,9 +39,7 @@
 }
 
 @media (max-width: 575.98px) {
-  #info {
-    order: 2;
-  }
+
 
   #info h2 {
     font: Bold 25px/30px Cairo;
@@ -136,13 +134,13 @@
   font-size: 25px;
   font-weight: 700;
   letter-spacing: 0;
-  line-height: normal;
   color: #1078AD;
+  line-height: 35px;
 }
 
 @media (max-width: 575.98px) {
   .symptom-card h5 {
-    font-size: 17px;
+    font-size: 14px;
   }
 
   .symptom-card img {
