@@ -62,6 +62,12 @@
     background-color: #1078AD;
 }
 
+.dng {
+    font-size: 45px !important;
+    font-weight: 900 !important;
+    color: #a94442 !important;
+}
+
 @media (max-width: 575.98px) {
     ::ng-deep .step-label {
         font-size: 14px !important;
@@ -79,6 +85,12 @@
         width: 7px !important;
         height: 7px !important;
     } */
+
+    .dng {
+        font-size: 30px !important;
+        font-weight: 900 !important;
+        color: #a94442 !important;
+    }
 }
 
 /* *********** MATERIAL DESIGN CUSTOMIZATION *********** */

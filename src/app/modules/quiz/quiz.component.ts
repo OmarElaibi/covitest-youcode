@@ -34,4 +34,13 @@ export class QuizComponent implements OnInit {
     location.reload(true);
   }
 
+  checkResult() {
+    console.log("check check");
+    if(this.resultat === 'خصك تعيط ل 141') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
 }
