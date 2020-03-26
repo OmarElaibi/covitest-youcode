@@ -77,9 +77,9 @@ export class TestService {
       }
     } else if (symptoms.fever || symptoms.cough || symptoms.soreThroat || symptoms.muscularPain) {
       if (fact_gravite_maj === 0 && fact_gravite_min === 0) {
-        this.resultat = 'موحال واش فيك فيروس كورونا، ولكن إلى شكيتي ممكن تتصل بطبيب ديالك';
+        this.resultat = 'على الأرجح مافيكش فيروس كورونا، ولكن إلى شكيتي ممكن تتصل بطبيب ديالك';
       } else if (fact_gravite_min > 0 || fact_gravite_maj > 0 || fact_pronostique) {
-        this.resultat = 'موحال واش فيك فيروس كورونا ؛ تنصحوك تشاور مع طبيب. وإلى شكيتي اتصل ب 141';
+        this.resultat = 'على الأرجح مافيكش فيروس كورونا ؛ تنصحوك تشاور مع طبيب. وإلى شكيتي اتصل ب 141';
       }
     } else {
       this.resultat = 'موحال واش فيك فيروس كورونا، إذا عندك شك اتصل بالطبيب ديالك. تقد تعاود الإختبار لكانوا عندك اعراض اخرى. لبغيتي تعرف اكثر على الڤيروس ممكن تشوف صفحة النصائح';
