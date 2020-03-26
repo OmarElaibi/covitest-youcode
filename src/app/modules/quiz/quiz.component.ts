@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatStepper } from '@angular/material/stepper';
 import { TestService } from 'src/app/shared/services/test.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-quiz',
@@ -15,7 +16,9 @@ export class QuizComponent implements OnInit {
   resultat: string;
   message: string;
 
-  constructor(private service: TestService, private router: Router) { }
+  constructor(private service: TestService, private router: Router, private titleService: Title) {
+    titleService.setTitle('CoviTest | Test');
+  }
 
   ngOnInit(): void {
   }
