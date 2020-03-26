@@ -41,12 +41,19 @@
     font-weight: 900;
 }
 
-#lang-item button {
+/* #lang-item div {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
     color: #1078AD;
     font-family: 'Cairo', sans-serif;
     border: 1.2px solid #1078AD;
     transition: .2s;
     font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
 }
 
 #lang-item button:hover {
@@ -54,6 +61,18 @@
     font-family: 'Cairo', sans-serif;
     border: 1.2px solid #1078AD;
     background: #1078AD;
+} */
+
+.flag-icon-background {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background-size: 35px;
+    background-position: center center;
+}
+
+#lang-mobile {
+    display: none;
 }
 
 #globe-icon {
@@ -67,7 +86,7 @@
         align-items: center;
     }
 
-    #lang-item {
+    /* #lang-item {
         order: 4;
         border-bottom: 0;
     }
@@ -75,6 +94,14 @@
     #lang-item button {
         display: block;
         width: 100%;
+    } */
+
+    #lang-large {
+        display: none;
+    }
+
+    #lang-mobile {
+        display: block;
     }
 
     .nav-item {

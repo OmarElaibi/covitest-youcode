@@ -92,7 +92,7 @@ export class MultipleStepsFormComponent implements OnInit {
       weight: ['', [Validators.required, Validators.min(20), Validators.max(250)]]
     });
     this.heightFormGroup = this.fb.group({
-      height: ['', [Validators.required, Validators.min(0.8), Validators.max(2.5)]]
+      height: ['', [Validators.required, Validators.min(80), Validators.max(250)]]
     });
     this.heartDiseaseFormGroup = this.fb.group({
       heartDisease: ['', Validators.required]
@@ -163,7 +163,7 @@ export class MultipleStepsFormComponent implements OnInit {
 
   savePpf() {
     this.ppf.age = +this.ageFormGroup.value.age;
-    this.ppf.imc = this.weightFormGroup.value.weight / Math.pow(this.heightFormGroup.value.height, 2);
+    this.ppf.imc = this.weightFormGroup.value.weight / Math.pow(this.heightFormGroup.value.height / 100, 2);
     this.ppf.breathingIllness = this.breathingIllnessFormGroup.value.breathingIllness;
     this.ppf.cancer = this.cancerFormGroup.value.cancer;
     this.ppf.chronicLiverDisease = this.chronicLiverDiseaseFormGroup.value.chronicLiverDisease;

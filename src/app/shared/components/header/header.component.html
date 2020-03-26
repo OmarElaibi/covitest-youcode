@@ -1,22 +1,26 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id="navbar">
-  <a class="navbar-brand" routerLink="/" >
+  <a class="navbar-brand" routerLink="/">
     <img id="navbar-logo" src="assets/imgs/logo__sante.png" alt="logo de la ministère de la santé">
   </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
-    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+  <div class="d-flex ml-auto">
+    <a id="lang-mobile" class="mx-3 my-auto">
+      <div class="flag-icon-background flag-icon-fr"> </div>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
 
   <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
     <ul class="navbar-nav ml-auto mt-2 mt-lg-0" id="navbar-items">
-      <li class="nav-item" id="lang-item">
-          <button i18n="@@lang37" class="btn btn-outline-light btn-sm">
-            فرنسي
-            <i class="fa fa-globe" id="globe-icon"></i>
-          </button>
+      <li class="nav-item lang mx-2" id="lang-large">
+        <a class="nav-link">
+          <div class="flag-icon-background flag-icon-fr"> </div>
+        </a>
       </li>
       <li class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-        <a i18n="@@lang38" class="nav-link" routerLink="/" >الرئيسية</a>
+        <a i18n="@@lang38" class="nav-link" routerLink="/">الرئيسية</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
         <a i18n="@@lang39" class="nav-link" routerLink="/conseils">نصائح</a>

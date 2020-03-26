@@ -18,13 +18,12 @@
 #info p {
   color: #1A519E;
   font: Bold 21px/39px Cairo;
-  text-align: justify;
-  text-align-last: right;
+  text-align: center;
 }
 #info button {
+  width: 50%;
   font-size: 22px;
   background: url("~/assets/imgs/button-bg.png");
-  border: 2px solid #1078AD;
   background-size: cover;
   background-repeat: no-repeat;
   border-radius: 5px;
@@ -120,8 +119,8 @@
 }
 
 .symptom-card img {
-  width: 5vw;
-  height: auto;
+  width: auto;
+  height: 20vh;
   margin-bottom: 25px;
 }
 
@@ -139,7 +138,8 @@
   }
 
   .symptom-card img {
-    width: 10vw;
+    width: auto;
+    height: 10vh;
   }
 
   #symptoms-title {

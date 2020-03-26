@@ -44,12 +44,17 @@ footer {
   font-weight: 500;
 }
 
+.list-group-item.active {
+  border-color: inherit !important;
+}
+
 .active {
   background-color: transparent;
 }
 
 .active a {
-  color: #F4CF1B !important;
+  color: #1078AD !important;
+  font-weight: 700 !important;
 }
 
 #footer-lang-btn {
@@ -84,6 +89,8 @@ footer {
     color: #1078AD;
 }
 
+
+
 #footer-contacts h5 {
     font-family: 'Cairo', sans-serif;
     font-size: 1.5em;
@@ -107,8 +114,9 @@ footer {
     line-height: 1.4;
   }
 
-  #footer-contacs h2 {
-      font-size: 0.8em;
+  #footer-contacts h2 {
+      font-size: 1.3em;
+      font-weight: 900;
   }
 
     #footer-contacts p {
