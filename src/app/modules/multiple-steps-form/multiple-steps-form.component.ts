@@ -59,7 +59,7 @@ export class MultipleStepsFormComponent implements OnInit {
       fever: ['', Validators.required]
     });
     this.feverDegreeFormGroup = this.fb.group({
-      feverDegree: ['', [Validators.required, Validators.min(10)]]
+      feverDegree: ['', [Validators.required, Validators.min(34), Validators.max(42)]]
     });
     this.coughFormGroup = this.fb.group({
       cough: ['', Validators.required]
@@ -86,13 +86,13 @@ export class MultipleStepsFormComponent implements OnInit {
       discomfort: ['', Validators.required]
     });
     this.ageFormGroup = this.fb.group({
-      age: ['', [Validators.required, Validators.min(15)]]
+      age: ['', [Validators.required, Validators.min(15), Validators.max(110)]]
     });
     this.weightFormGroup = this.fb.group({
-      weight: ['', [Validators.required, Validators.min(35)]]
+      weight: ['', [Validators.required, Validators.min(20), Validators.max(250)]]
     });
     this.heightFormGroup = this.fb.group({
-      height: ['', [Validators.required, Validators.min(1), Validators.max(2.5)]]
+      height: ['', [Validators.required, Validators.min(0.8), Validators.max(2.5)]]
     });
     this.heartDiseaseFormGroup = this.fb.group({
       heartDisease: ['', Validators.required]
